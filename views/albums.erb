@@ -11,15 +11,19 @@
 </form>
 
 
-
+<!-- 
+<form method="get" action="/albums">
+<button type="submit" name="sort" class="btn">sort!</button>
+</form> -->
 
 
 <h3>Available Records</h3>
 
+
 <% if @albums.any? %>
   <ul>
     <% @albums.each do |album| %>
-      <li><a href="/albums/<%= album.id %>"><%= album.name %></a></li>
+      <li><a href="/albums/<%= album.id %>"> <%= album.name %>-<%= album.artist %>-<%= album.year %></a></li>
     <% end %>
   </ul>
 <% else %>

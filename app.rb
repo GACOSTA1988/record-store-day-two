@@ -9,7 +9,6 @@ get('/') do
   erb(:albums)
 end
 
-
 get('/albums') do
   if params["search"]
     @albums = Album.search(params[:search])
@@ -18,18 +17,22 @@ get('/albums') do
   end
   erb(:albums)
 end
+
 get('/albums/new') do
   erb(:new_album)
 end
 
-get('/test') do
-  @something = "this is a variable"
-  erb(:whatever)
+get('/albums') do
+  @albums = Album.all.sorter
+  erb(:albums)
 end
+
 
 post('/albums') do
   name = params[:album_name]
-  album = Album.new(name, nil)
+  artist = params[:artist_name]
+  year = params[:year]
+  album = Album.new(name, artist, nil, year)
   album.save()
   @albums = Album.all()
   erb(:albums)
@@ -57,9 +60,4 @@ delete('/albums/:id') do
   @album.delete()
   @albums = Album.all
   erb(:albums)
-end
-
-
-get('/custom_route') do
-  "We can even create custom routes, but we should only do this when needed."
 end
