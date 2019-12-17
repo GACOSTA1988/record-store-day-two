@@ -12,6 +12,9 @@ end
 get('/albums') do
   if params["search"]
     @albums = Album.search(params[:search])
+  elsif
+    params["sort"]
+    @albums = Album.sorter
   else
     @albums = Album.all
   end

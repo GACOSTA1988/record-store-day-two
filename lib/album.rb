@@ -5,14 +5,14 @@ class Album
   @@total_rows = 0 # We've added a class variable to keep track of total rows and increment the value when an ALbum is added.
 
   def initialize(name, artist, id, year) # We've added id as a second parameter.
-    @name = name
-    @artist = artist
+    @name = name.capitalize
+    @artist = artist.capitalize
     @id = id || @@total_rows += 1  # We've added code to handle the id.
-    @year = year
+    @year = year.capitalize
   end
 
   def self.all
-    @@albums.values.sort_by { |album| album.name}
+    @@albums.values
   end
 
   def save
@@ -43,9 +43,9 @@ class Album
   def self.search(x)
     @@albums.values.select { |e| /#{x}/i.match? e.name}
   end
-  # 
-  # def self.sorter
-  #   @@albums.values.sort_by { |album| album.name}
-  # end
+
+  def self.sorter
+    @@albums.values.sort_by { |album| album.name}
+  end
 
   end

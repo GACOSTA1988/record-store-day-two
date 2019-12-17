@@ -1,4 +1,18 @@
 <h1>All Sales Vinyl</h1>
+<h3>Available Records</h3>
+
+
+<% if @albums.any? %>
+<ul>
+  <% @albums.each do |album| %>
+  <li><a href="/albums/<%= album.id %>"> <%= album.name %>-<%= album.artist %>-<%= album.year %></a></li>
+  <% end %>
+</ul>
+<% else %>
+<p>There are currently no records to display.</p>
+<% end %>
+
+<a href="/albums/new">Add a new album</a>
 
 <h3>Search Records</h3>
 
@@ -10,24 +24,13 @@
   <button type="submit" class="btn">Go!</button>
 </form>
 
+<form action="/albums">
+    <label for="sort">Sort!</label>
+  <button name="sort" type="submit" class="btn">Sort!!!</button>
+</form>
 
-<!-- 
+
+<!--
 <form method="get" action="/albums">
 <button type="submit" name="sort" class="btn">sort!</button>
 </form> -->
-
-
-<h3>Available Records</h3>
-
-
-<% if @albums.any? %>
-  <ul>
-    <% @albums.each do |album| %>
-      <li><a href="/albums/<%= album.id %>"> <%= album.name %>-<%= album.artist %>-<%= album.year %></a></li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>There are currently no records to display.</p>
-<% end %>
-
-<a href="/albums/new">Add a new album</a>
