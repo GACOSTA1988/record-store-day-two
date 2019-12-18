@@ -9,9 +9,9 @@ describe('create an album path', {:type => :feature}) do
     visit('/albums')
     save_and_open_page
     click_on('Add a New Album')
-    fill_in('album_name', :with => 'Yellow Submarine')
+    fill_in('album_name', :with => 'Yellow submarine')
     click_on('Go!')
-    expect(page).to have_content('Yellow Submarine')
+    expect(page).to have_content('Yellow submarine')
   end
 end
 describe('create a song path', {:type => :feature}) do
