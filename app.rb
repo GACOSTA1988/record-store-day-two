@@ -31,7 +31,6 @@ get('/albums') do
   erb(:albums)
 end
 
-
 post('/albums') do
   name = params[:album_name]
   artist = params[:artist_name]
