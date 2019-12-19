@@ -4,22 +4,13 @@ class Album
   @@albums = {}
   @@total_rows = 0 # We've added a class variable to keep track of total rows and increment the value when an ALbum is added.
 
-  # def initialize(name, artist, id, year) # We've added id as a second parameter.
-  #   @name = name.capitalize
-  #   @artist = artist.capitalize
-  #   @id = id || @@total_rows += 1  # We've added code to handle the id.
-  #   @year = year.capitalize
-  # end
+  def initialize(name, artist, id, year) # We've added id as a second parameter.
+    @name = name.capitalize
+    @artist = artist.capitalize
+    @id = id || @@total_rows += 1  # We've added code to handle the id.
+    @year = year.capitalize
+  end
 
-  # class Album
-    def initialize(attributes)
-      @name = attributes.fetch(:name)
-      @artist = attributes.fetch(:artist)
-      @year = attributes.fetch(:year)
-      @genre = attributes.fetch(:genre)
-      @length = attributes.fetch(:length)
-    end
-  # end
 
   def self.all
     @@albums.values
